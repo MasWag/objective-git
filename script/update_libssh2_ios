@@ -1,53 +1,42 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -e
 
 # source the common build functions
 SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
-source "${SCRIPT_DIR}/ios_build_functions.sh"
+source "$SCRIPT_DIR/ios_build_functions.sh"
 
-function setup ()
+function setup_libssh2()
 {
-    if [ -f "${INSTALL_PATH}/lib/libssh2.a" ]
-    then
-        echo "No update needed."
-        exit 0
-    fi
     LIBRARY_NAME="libssh2"
+    BUILD_DIR="$INSTALL_PATH/$LIBRARY_NAME"
 }
 
-function build_ssh2 ()
+function build_libssh2()
 {
-    cp -R "${ROOT_PATH}/External/libssh2" "${ARCH_INSTALL_PATH}/libssh2"
-    pushd "${ARCH_INSTALL_PATH}/libssh2" > /dev/null
+    INSTALL_PREFIX="$ARCH_INSTALL_PATH/build/$LIBRARY_NAME/$ARCH"
+    
+    rm -rf "$INSTALL_PREFIX"
+    mkdir -p "$INSTALL_PREFIX"
 
-    export CFLAGS="-arch ${ARCH} -fembed-bitcode -pipe -no-cpp-precomp -isysroot ${SDKROOT} -miphoneos-version-min=${IPHONEOS_DEPLOYMENT_TARGET}"
-    export CPPFLAGS="-arch ${ARCH} -fembed-bitcode -pipe -no-cpp-precomp -isysroot ${SDKROOT} -miphoneos-version-min=${IPHONEOS_DEPLOYMENT_TARGET}"
+    # We only want to discover our static library
+    export PKG_CONFIG="$SCRIPT_DIR/pkg-config-static"
 
-    ./buildconf >> "${LOG}" 2>&1
-    ./configure --host=${HOST} --prefix="${ARCH_INSTALL_PATH}" --with-crypto=openssl --with-libcrypto-prefix="${INSTALL_PATH}" --disable-shared --enable-static >> "${LOG}" 2>&1
-    make -j$(sysctl hw.ncpu | awk '{print $2}')  >> "${LOG}" 2>&1
-    make install >> "${LOG}" 2>&1
+    pushd "$INSTALL_PREFIX" > /dev/null
+
+    cmake \
+        -DCMAKE_C_COMPILER_WORKS:BOOL=ON \
+        -DBUILD_SHARED_LIBS:BOOL=OFF \
+        -DCMAKE_PREFIX_PATH:PATH="$ARCH_INSTALL_PATH" \
+        -DPKG_CONFIG_USE_CMAKE_PREFIX_PATH:BOOL=ON \
+        -DCMAKE_INSTALL_PREFIX:PATH="$INSTALL_PREFIX" \
+        -DCMAKE_C_FLAGS:STRING="-fembed-bitcode" \
+        -DCMAKE_OSX_SYSROOT="$SDKROOT" \
+        -DCMAKE_OSX_ARCHITECTURES:STRING="$ARCH" \
+        "$ROOT_PATH/External/libssh2" >> "$LOG" 2>&1
+    cmake --build . -j$NUMBER_OF_CORES --target install >> "$LOG" 2>&1
+
     popd > /dev/null
-
-    rm -rf "${ARCH_INSTALL_PATH}/libssh2"
-
-    BUILT_LIBS+=("${ARCH_INSTALL_PATH}/lib/libssh2.a")
 }
 
-function fat_binary ()
-{
-    echo "Copying headers & pkg-config files"
-
-    cp -r "${ARCH_INSTALL_PATH}"/include/libssh*.h "${INSTALL_PATH}/include/"
-    cp "${ARCH_INSTALL_PATH}/lib/pkgconfig/libssh2.pc" "${INSTALL_PATH}/lib/pkgconfig/"
-    perl -i -pe "s|^(prefix=${INSTALL_PATH}).*$|\$1|g" "${INSTALL_PATH}/lib/pkgconfig/libssh2.pc" >> "${LOG}" 2>&1
-
-    echo "Building fat binary..."
-
-    lipo -create "${BUILT_LIBS[@]}" -output "${INSTALL_PATH}/lib/libssh2.a"
-
-    echo "Building done."
-}
-
-build_all_archs setup build_ssh2 fat_binary
+build_all_archs setup_libssh2 build_libssh2
