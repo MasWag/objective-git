@@ -3,6 +3,10 @@
 SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
 source "$SCRIPT_DIR/xcode_functions.sh"
 
+PLATFORMS=("iphoneos" "iphonesimulator")
+ARCHS_iphoneos=("arm64")
+ARCHS_iphonesimulator=("x86_64" "arm64")
+
 function setup_build_environment ()
 {
     pushd "$SCRIPT_DIR/.." > /dev/null
@@ -24,11 +28,6 @@ function setup_build_environment ()
     then
         IPHONEOS_DEPLOYMENT_TARGET="12.0"
     fi
-
-    declare -gA ARCHS=( \
-        ["iphoneos"]="arm64" \
-        ["iphonesimulator"]="x86_64 arm64" \
-    )
 
     # Setup a shared area for our build artifacts
     INSTALL_PATH="$ROOT_PATH/External/build"
@@ -52,7 +51,8 @@ function build_framework()
     PLATFORM_INSTALL_PATH="$INSTALL_PATH/$PLATFORM"
     LIBS=()
     
-    for ARCH in ${ARCHS[$PLATFORM]}
+    PLATFORM_ARCHS="ARCHS_$PLATFORM[@]"
+    for ARCH in ${!PLATFORM_ARCHS}
     do
         INSTALL_PREFIX="$PLATFORM_INSTALL_PATH/build/$LIBRARY_NAME/$ARCH"
         
@@ -97,9 +97,10 @@ function build_all_archs ()
         exit 0
     fi
 
-    for PLATFORM in "${!ARCHS[@]}"
+    for PLATFORM in ${PLATFORMS[@]}
     do
-        for ARCH in ${ARCHS[$PLATFORM]}
+        PLATFORM_ARCHS="ARCHS_$PLATFORM[@]"
+        for ARCH in ${!PLATFORM_ARCHS}
         do
             if [ "$ARCH" == "arm64" ]
             then
