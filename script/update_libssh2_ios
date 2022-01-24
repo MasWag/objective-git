@@ -33,6 +33,7 @@ function build_libssh2()
         -DCMAKE_C_FLAGS:STRING="-fembed-bitcode" \
         -DCMAKE_OSX_SYSROOT="$SDKROOT" \
         -DCMAKE_OSX_ARCHITECTURES:STRING="$ARCH" \
+        -DCMAKE_OSX_DEPLOYMENT_TARGET="$IPHONEOS_DEPLOYMENT_TARGET" \
         "$ROOT_PATH/External/libssh2" >> "$LOG" 2>&1
     cmake --build . -j$NUMBER_OF_CORES --target install >> "$LOG" 2>&1
 
