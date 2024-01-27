@@ -1426,6 +1426,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 0700;
 				LastTestingUpgradeCheck = 0510;
 				LastUpgradeCheck = 0930;
@@ -1945,8 +1946,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4DB97075264596AE00D14944 /* macOS-Framework.xcconfig */;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = (
@@ -1955,7 +1958,10 @@
 					"$(PROJECT_DIR)/External/build/lib",
 					"$(PROJECT_DIR)/External",
 				);
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MODULEMAP_FILE = ObjectiveGit.modulemap;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_LDFLAGS = (
 					"-force_load",
 					"External/libgit2-mac.a",
@@ -1974,8 +1980,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4DB97075264596AE00D14944 /* macOS-Framework.xcconfig */;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = (
@@ -1984,7 +1992,10 @@
 					"$(PROJECT_DIR)/External/build/lib",
 					"$(PROJECT_DIR)/External",
 				);
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MODULEMAP_FILE = ObjectiveGit.modulemap;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_LDFLAGS = (
 					"-force_load",
 					"External/libgit2-mac.a",
@@ -2011,7 +2022,9 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				DEAD_CODE_STRIPPING = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = NO;
@@ -2019,7 +2032,7 @@
 					External/libgit2/include,
 					/usr/local/include,
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					.,
 					External,
@@ -2051,6 +2064,8 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = NO;
@@ -2058,7 +2073,7 @@
 					External/libgit2/include,
 					/usr/local/include,
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					.,
 					External,
@@ -2081,6 +2096,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D0D81865174421EB00995A2E /* iOS-StaticLibrary.xcconfig */;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_NAME = "OpenSSL-iOS";
 			};
 			name = Debug;
@@ -2089,6 +2106,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D0D81865174421EB00995A2E /* iOS-StaticLibrary.xcconfig */;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_NAME = "OpenSSL-iOS";
 			};
 			name = Release;
@@ -2097,6 +2116,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D0D81865174421EB00995A2E /* iOS-StaticLibrary.xcconfig */;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_NAME = "OpenSSL-iOS";
 			};
 			name = Profile;
@@ -2105,6 +2126,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D0D81865174421EB00995A2E /* iOS-StaticLibrary.xcconfig */;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_NAME = "libssh2-iOS";
 			};
 			name = Debug;
@@ -2113,6 +2136,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D0D81865174421EB00995A2E /* iOS-StaticLibrary.xcconfig */;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_NAME = "libssh2-iOS";
 			};
 			name = Release;
@@ -2121,6 +2146,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D0D81865174421EB00995A2E /* iOS-StaticLibrary.xcconfig */;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_NAME = "libssh2-iOS";
 			};
 			name = Profile;
@@ -2130,6 +2157,7 @@
 			baseConfigurationReference = 4DB97078264596AE00D14944 /* macOS-XCTest.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_NULLABLE_TO_NONNULL_CONVERSION = NO;
+				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -2145,6 +2173,7 @@
 					/usr/local/include,
 				);
 				INFOPLIST_FILE = "ObjectiveGitTests/ObjectiveGitTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.libgit2.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -2155,6 +2184,7 @@
 			baseConfigurationReference = 4DB97078264596AE00D14944 /* macOS-XCTest.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_NULLABLE_TO_NONNULL_CONVERSION = NO;
+				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -2165,6 +2195,7 @@
 					/usr/local/include,
 				);
 				INFOPLIST_FILE = "ObjectiveGitTests/ObjectiveGitTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.libgit2.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -2182,6 +2213,8 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = NO;
@@ -2189,7 +2222,7 @@
 					External/libgit2/include,
 					/usr/local/include,
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					.,
 					External,
@@ -2212,8 +2245,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4DB97075264596AE00D14944 /* macOS-Framework.xcconfig */;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = (
@@ -2222,7 +2257,10 @@
 					"$(PROJECT_DIR)/External/build/lib",
 					"$(PROJECT_DIR)/External",
 				);
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MODULEMAP_FILE = ObjectiveGit.modulemap;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_LDFLAGS = (
 					"-force_load",
 					"External/libgit2-mac.a",
@@ -2242,6 +2280,7 @@
 			baseConfigurationReference = 4DB97078264596AE00D14944 /* macOS-XCTest.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_NULLABLE_TO_NONNULL_CONVERSION = NO;
+				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -2252,6 +2291,7 @@
 					/usr/local/include,
 				);
 				INFOPLIST_FILE = "ObjectiveGitTests/ObjectiveGitTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.libgit2.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -2261,18 +2301,22 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D019778C19F830D100F523DA /* iOS-Framework.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					External/build/include,
 				);
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/External/build/lib";
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MODULEMAP_FILE = ObjectiveGit.modulemap;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.libgit2.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ObjectiveGit;
@@ -2286,6 +2330,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4DB97076264596AE00D14944 /* macOS-StaticLibrary.xcconfig */;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Test;
@@ -2294,6 +2340,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D0D81865174421EB00995A2E /* iOS-StaticLibrary.xcconfig */;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Test;
@@ -2302,6 +2350,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D0D81865174421EB00995A2E /* iOS-StaticLibrary.xcconfig */;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_NAME = "OpenSSL-iOS";
 			};
 			name = Test;
@@ -2310,6 +2360,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D0D81865174421EB00995A2E /* iOS-StaticLibrary.xcconfig */;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_NAME = "libssh2-iOS";
 			};
 			name = Test;
@@ -2318,18 +2370,22 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D019778C19F830D100F523DA /* iOS-Framework.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					External/build/include,
 				);
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/External/build/lib";
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MODULEMAP_FILE = ObjectiveGit.modulemap;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.libgit2.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ObjectiveGit;
@@ -2343,18 +2399,22 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D019778C19F830D100F523DA /* iOS-Framework.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					External/build/include,
 				);
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/External/build/lib";
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MODULEMAP_FILE = ObjectiveGit.modulemap;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.libgit2.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ObjectiveGit;
@@ -2368,18 +2428,22 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D019778C19F830D100F523DA /* iOS-Framework.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_MODULE_VERIFIER = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					External/build/include,
 				);
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/External/build/lib";
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MODULEMAP_FILE = ObjectiveGit.modulemap;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.libgit2.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ObjectiveGit;
@@ -2401,6 +2465,8 @@
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = NO;
@@ -2408,7 +2474,7 @@
 					External/libgit2/include,
 					/usr/local/include,
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LIBRARY_SEARCH_PATHS = (
 					.,
 					External,
@@ -2431,8 +2497,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4DB97075264596AE00D14944 /* macOS-Framework.xcconfig */;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = Info.plist;
 				LIBRARY_SEARCH_PATHS = (
@@ -2441,7 +2509,10 @@
 					"$(PROJECT_DIR)/External/build/lib",
 					"$(PROJECT_DIR)/External",
 				);
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MODULEMAP_FILE = ObjectiveGit.modulemap;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_LDFLAGS = (
 					"-force_load",
 					"External/libgit2-mac.a",
@@ -2461,6 +2532,7 @@
 			baseConfigurationReference = 4DB97078264596AE00D14944 /* macOS-XCTest.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_NULLABLE_TO_NONNULL_CONVERSION = NO;
+				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -2471,6 +2543,7 @@
 					/usr/local/include,
 				);
 				INFOPLIST_FILE = "ObjectiveGitTests/ObjectiveGitTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.libgit2.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -2480,6 +2553,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4DB97076264596AE00D14944 /* macOS-StaticLibrary.xcconfig */;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Profile;
@@ -2488,6 +2563,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D0D81865174421EB00995A2E /* iOS-StaticLibrary.xcconfig */;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Profile;
@@ -2496,6 +2573,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4DB97076264596AE00D14944 /* macOS-StaticLibrary.xcconfig */;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -2504,6 +2583,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4DB97076264596AE00D14944 /* macOS-StaticLibrary.xcconfig */;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -2512,6 +2593,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D0D81865174421EB00995A2E /* iOS-StaticLibrary.xcconfig */;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -2520,6 +2603,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D0D81865174421EB00995A2E /* iOS-StaticLibrary.xcconfig */;
 			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -2577,6 +2662,7 @@
 					.,
 					External,
 				);
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.libgit2.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2629,6 +2715,7 @@
 					.,
 					External,
 				);
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.libgit2.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2682,6 +2769,7 @@
 					.,
 					External,
 				);
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.libgit2.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2737,6 +2825,7 @@
 					.,
 					External,
 				);
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.libgit2.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
